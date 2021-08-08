@@ -62,10 +62,19 @@ async def async_register_services(hass):
         await uplink.put_smarthome_mode(call.data["system"], call.data["mode"])
 
     async def set_parameter(call):
+        headers = {
+            "Accept": "application/json",
+            "Content-Type": "application/json;charset=UTF-8",
+        }
+        data = {"settings": {str(call.data["parameter"]): call.data["value"]}}
+        menu_id = str(call.data["menu"])
         uplink = hass.data[DATA_NIBE].uplink
-        await uplink.put_parameter(
-            call.data["system"], call.data["parameter"], call.data["value"]
-        )
+        _LOGGER.debug(f"Set menu item in {menu_id} to {data}")
+
+        async with uplink.lock, uplink.throttle:
+            result = await uplink.put(
+                f"systems/{call.data['system']}/menu/{menu_id}", json=data, headers=headers,  
+            )
 
     async def get_parameter(call):
         uplink = hass.data[DATA_NIBE].uplink
@@ -106,6 +115,7 @@ async def async_register_services(hass):
     SERVICE_SET_PARAMETER_SCHEMA = vol.Schema(
         {
             vol.Required("system"): cv.positive_int,
+            vol.Required("menu"): cv.string,
             vol.Required("parameter"): cv.string,
             vol.Required("value"): cv.string,
         }

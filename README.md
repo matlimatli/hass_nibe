@@ -1,5 +1,21 @@
 # Nibe - An home assistant plugin to get data from Nibe Uplink
 
+This is a special version (nibeapp) that is designed to run in parallel to 
+the regular integration, but using the app API instead.
+
+Getting the app oauth credentials is a bit convoluted. The client_id and client_secret is not 
+publicly available. You also need to set the redirect_uri to app://nibe
+
+This means that the redirect will fail, and you have to manually edit the requested URI and replace app://nibe with https://your_ha_addr/api/nibeapp/auth? and perform a request in the browser
+
+The integration currently contains a lot of stuff that is not (or should not be) used. The main purpose is to make a different set_parameter service available. This takes a menu_id in addition to the parameter, making it possible to set all(?) options. E.g. pool start/stop temperatures.
+
+Tested items, in menu 4.1.1:
+48094: Active ("0")
+48090: Start temperature (25.5)
+48092: Stop temperature (27.5)
+48287: Compressor speed in % ("23.00")
+
 ## Preparation
 
 - Register an nibe uplink application on: https://api.nibeuplink.com/

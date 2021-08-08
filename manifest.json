@@ -1,13 +1,14 @@
 {
-  "domain": "nibe",
-  "name": "Nibe Uplink Heat Pumps",
+  "domain": "nibeapp",
+  "name": "Nibe Uplink Heat Pumps App Variant",
   "config_flow": true,
-  "documentation": "https://github.com/elupus/hass_nibe",
+  "documentation": "https://github.com/matlimatli/hass_nibe",
   "requirements": [
     "nibeuplink==1.1.0"
   ],
   "codeowners": [
-    "@elupus"
+    "@elupus",
+    "@matlimatli"
   ],
   "version": "1.0.1"
 }

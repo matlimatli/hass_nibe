@@ -3,8 +3,8 @@
 ATTR_TARGET_TEMPERATURE = "target_temperature"
 ATTR_VALVE_POSITION = "valve_position"
 
-DOMAIN = "nibe"
-DATA_NIBE = "nibe"
+DOMAIN = "nibeapp"
+DATA_NIBE = "nibeapp"
 
 CONF_CLIENT_ID = "client_id"
 CONF_CLIENT_SECRET = "client_secret"
@@ -29,8 +29,8 @@ CONF_VALVE_POSITION = "valve_position"
 CONF_CLIMATE_SYSTEMS = "systems"
 CONF_FANS = "fans"
 
-AUTH_CALLBACK_URL = "/api/nibe/auth"
-AUTH_CALLBACK_NAME = "api:nibe:auth"
+AUTH_CALLBACK_URL = "/api/nibeapp/auth"
+AUTH_CALLBACK_NAME = "api:nibeapp:auth"
 
 CONF_UPLINK_APPLICATION_URL = "https://api.nibeuplink.com/Applications"
 
@@ -39,8 +39,8 @@ SERVICE_SET_PARAMETER = "set_parameter"
 SERVICE_GET_PARAMETER = "get_parameter"
 SERVICE_SET_THERMOSTAT = "set_thermostat"
 
-SIGNAL_PARAMETERS_UPDATED = "nibe.parameters_updated"
-SIGNAL_STATUSES_UPDATED = "nibe.statuses_updated"
+SIGNAL_PARAMETERS_UPDATED = "nibeapp.parameters_updated"
+SIGNAL_STATUSES_UPDATED = "nibeapp.statuses_updated"
 
 SCAN_INTERVAL = 60
 

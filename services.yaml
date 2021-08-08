@@ -7,8 +7,9 @@ set_parameter:
   description: Set a nibe uplink parameter.
   fields:
     system: {description: System identifcation to send command to., example: "12345"}
-    parameter: {description: "Parameter to set.", example: "hot_water_boost"}
-    value: {description: "Value to set", example: "1"}
+    menu: {description: "Menu with parameter.", example: "4.1.1"}
+    parameter: {description: "Parameter to set.", example: "48090"}
+    value: {description: "Value to set", example: "25"}
 get_parameter:
   description: Get a nibe uplink parameter and display a notification.
   fields:

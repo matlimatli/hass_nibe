@@ -1,5 +1,5 @@
 {
-  "name": "Nibe Uplink",
+  "name": "Nibe Uplink App Variant",
   "content_in_root": true,
   "iot_class": "Cloud Polling",
   "domains": [
