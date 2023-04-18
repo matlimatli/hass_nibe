@@ -154,6 +154,46 @@ PARAMETER_SENSORS = (
         state_class=SensorStateClass.TOTAL_INCREASING,
     ),
     NibeSensorEntityDescription(
+        key="40771",
+        name="pool2, compr. only",
+        state_class=SensorStateClass.TOTAL_INCREASING,
+    ),
+    NibeSensorEntityDescription(
+        key="40995",
+        name="external energy meter 2",
+        state_class=SensorStateClass.TOTAL_INCREASING,
+    ),
+    NibeSensorEntityDescription(
+        key="44298",
+        name="hw, incl. int. add",
+        state_class=SensorStateClass.TOTAL_INCREASING,
+    ),
+    NibeSensorEntityDescription(
+        key="44300",
+        name="heating, int. add. incl.",
+        state_class=SensorStateClass.TOTAL_INCREASING,
+    ),
+    NibeSensorEntityDescription(
+        key="44302",
+        name="cooling, compr. only.",
+        state_class=SensorStateClass.TOTAL_INCREASING,
+    ),
+    NibeSensorEntityDescription(
+        key="44304",
+        name="pool, compr. only.",
+        state_class=SensorStateClass.TOTAL_INCREASING,
+    ),
+    NibeSensorEntityDescription(
+        key="44306",
+        name="hotwater, compr. only.",
+        state_class=SensorStateClass.TOTAL_INCREASING,
+    ),
+    NibeSensorEntityDescription(
+        key="44308",
+        name="heating, compr. only.",
+        state_class=SensorStateClass.TOTAL_INCREASING,
+    ),
+    NibeSensorEntityDescription(
         key="47407",
         name="AUX5",
         entity_category=EntityCategory.CONFIG,
@@ -250,7 +290,8 @@ class NibeSensor(NibeParameterEntity, SensorEntity):
         """Return state class of unit."""
         if data := super().state_class:
             return data
-
+        if self.native_unit_of_measurement == ENERGY_KILO_WATT_HOUR:
+            return SensorStateClass.TOTAL_INCREASING
         if self.native_unit_of_measurement:
             return SensorStateClass.MEASUREMENT
         else:
